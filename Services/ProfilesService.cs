@@ -20,7 +20,7 @@ namespace keepr.Services
       return profile;
     }
 
-    internal Profile GetProfileEmailById(string id)
+    internal Profile GetProfileById(string id)
     {
       return _repo.GetById(id);
     }

@@ -16,29 +16,16 @@ namespace keepr.Repositories
       _db = db;
     }
 
-    internal IEnumerable<Vault> GetAll()
-    {
-      string sql = @"
-      SELECT
-      vlt.*
-      prof.*
-      FROM vaults vlt
-      JOIN profiles prof ON vlt.creatorId = prof.id";
-      return _db.Query<Vault, Profile, Vault>(sql, (vault, profile) =>
-      {
-          vault.Creator = profile;
-          return vault;
-      }, splitOn: "id");
-    }
 
     internal Vault GetById(int id)
     {
       string sql = @"
       SELECT
-      vlt.*
+      vlt.*,
       prof.*
       FROM vaults vlt
-      JOIN profiles prof ON vlt.creatorId = prof.id";
+      JOIN profiles prof ON vlt.creatorId = prof.id
+      WHERE vlt.id = @id";
       return _db.Query<Vault, Profile, Vault>(sql, (vault, profile) =>
       {
           vault.Creator = profile;
@@ -58,14 +45,27 @@ namespace keepr.Repositories
       return newVault;
     }
 
-    internal void Delete(int id)
+    internal IEnumerable<Vault> GetByCreatorId(string id)
     {
-      throw new NotImplementedException();
+      string sql = @"
+      SELECT 
+      vlt.*,
+      prof.*
+      FROM vaults vlt
+      JOIN profiles prof ON vlt.creatorId = prof.Id
+      WHERE vlt.creatorId = @Id";
+      return _db.Query<Vault, Profile, Vault>(sql, (vault, profile) =>
+      {
+        vault.Creator = profile;
+        return vault;
+      }, new {id}, splitOn: "id");
     }
 
-    internal object Edit(Vault updated)
+    internal void Delete(int id)
     {
-      throw new NotImplementedException();
+      string sql = "DELETE FROM vaults WHERE id = @id";
+      _db.Execute(sql, new{id});
     }
+
   }
 }

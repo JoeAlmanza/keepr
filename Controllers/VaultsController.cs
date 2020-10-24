@@ -19,18 +19,6 @@ namespace keepr.Controllers
       _vs = vs;
     }
 
-    [HttpGet]
-    public ActionResult<Vault> GetAll()
-    {
-        try
-        {
-            return Ok(_vs.GetAll());
-        }
-        catch (Exception e)
-        {
-            return BadRequest(e.Message);
-        }
-    }
 
     [HttpGet("{id}")]
     public ActionResult<Vault> GetById(int id)
@@ -62,23 +50,6 @@ namespace keepr.Controllers
         }
     }
 
-    [HttpPut("{id}")]
-    [Authorize]
-    public async Task<ActionResult<Vault>> Edit([FromBody] Vault updated, int id)
-    {
-        try
-        {
-            Profile userInfo = await HttpContext.GetUserInfoAsync<Profile>();
-            updated.CreatorId = userInfo.Id;
-            updated.Creator = userInfo;
-            updated.Id = id;
-            return Ok(_vs.Edit(updated)); 
-        }
-        catch (Exception e)
-        {
-            return BadRequest(e.Message);
-        }
-    }
 
     [HttpDelete("{id}")]
     [Authorize]
@@ -94,5 +65,24 @@ namespace keepr.Controllers
             return BadRequest(e.Message);
         }
     }
+
+
+    // [HttpPut("{id}")]
+    // [Authorize]
+    // public async Task<ActionResult<Vault>> Edit([FromBody] Vault updated, int id)
+    // {
+    //     try
+    //     {
+    //         Profile userInfo = await HttpContext.GetUserInfoAsync<Profile>();
+    //         updated.CreatorId = userInfo.Id;
+    //         updated.Creator = userInfo;
+    //         updated.Id = id;
+    //         return Ok(_vs.Edit(updated)); 
+    //     }
+    //     catch (Exception e)
+    //     {
+    //         return BadRequest(e.Message);
+    //     }
+    // }
   }
 }

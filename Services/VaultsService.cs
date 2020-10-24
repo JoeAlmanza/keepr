@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using keepr.Models;
 using keepr.Repositories;
 
@@ -14,10 +15,6 @@ namespace keepr.Services
       _repo = repo;
     }
 
-    internal IEnumerable<Vault> GetAll()
-    {
-      return _repo.GetAll();
-    }
 
     internal Vault GetById(int id)
     {
@@ -29,23 +26,12 @@ namespace keepr.Services
       return data;
     }
 
+
     internal object Create(Vault newVault)
     {
       return _repo.Create(newVault);
     }
 
-    internal object Edit(Vault updated)
-    {
-      var data = _repo.GetById(updated.Id);
-      if(data.CreatorId != updated.CreatorId)
-      {
-          throw new Exception("Invalid Edit Permissions");
-      }
-      updated.Name = updated.Name != null ? updated.Name : data.Name;
-      updated.Description = updated.Description != null ? updated.Description : data.Description;
-
-      return _repo.Edit(updated);
-    }
 
     internal object Delete(int id, string userId)
     {
@@ -56,6 +42,11 @@ namespace keepr.Services
       }
       _repo.Delete(id);
       return "Successfully Deleted";
+    }
+
+    internal IEnumerable<Vault> GetVaultsByProfileId(string queryId, string userId)
+    {
+      return _repo.GetByCreatorId(queryId).ToList().FindAll(v => v.CreatorId == userId);
     }
   }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using keepr.Models;
 using keepr.Repositories;
 
@@ -7,16 +8,19 @@ namespace keepr.Services
 {
   public class KeepsService
   {
+
     private readonly KeepsRepository _repo;
     public KeepsService(KeepsRepository repo)
     {
       _repo = repo;
     }
 
+
     internal IEnumerable<Keep> GetAll()
     {
       return _repo.GetAll();
     }
+
 
     internal Keep GetById(int id)
     {
@@ -28,10 +32,12 @@ namespace keepr.Services
       return data;
     }
 
+
     internal object Create(Keep newKeep)
     {
       return _repo.Create(newKeep);
     }
+
 
     internal object Edit(Keep updated)
     {
@@ -47,6 +53,7 @@ namespace keepr.Services
       return _repo.Edit(updated);
     }
 
+
     internal object Delete(int id, string userId)
     {
       var data = GetById(id);
@@ -58,9 +65,11 @@ namespace keepr.Services
       return "Successfully Deleted";
     }
 
-    // internal IEnumerable<Keep> GetAllByCreatorEmail(string queryProfileEmail, string email)
-    // {
-    //   return _repo.GetByCreatorEmail(queryProfileEmail).ToList().FindAll(k => k.Creator.email == email || !k.IsPrivate);
-    // }
+
+    internal IEnumerable<Keep> GetKeepsByProfileId(string queryId, string userId)
+    {
+      return _repo.GetByCreatorId(queryId).ToList().FindAll(k=> k.CreatorId == userId); 
+    }
+
   }
 }
