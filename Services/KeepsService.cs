@@ -33,7 +33,17 @@ namespace keepr.Services
     }
 
 
-    internal object Create(Keep newKeep)
+    internal IEnumerable<Keep> GetByVaultId(int id)
+    {
+      var vault = _repo.GetById(id);
+      if(vault == null){
+        throw new Exception("Invalid Vault Id");
+      }
+      return _repo.GetKeepsByVaultId(id);
+    }
+
+
+    internal Keep Create(Keep newKeep)
     {
       return _repo.Create(newKeep);
     }
@@ -42,6 +52,10 @@ namespace keepr.Services
     internal object Edit(Keep updated)
     {
       var data = GetById(updated.Id);
+      if(data == null)
+      {
+        throw new Exception("Invalid Keep ID");
+      }
       if(data.CreatorId != updated.CreatorId)
       {
           throw new Exception("Invalid edit permissions");
@@ -57,6 +71,10 @@ namespace keepr.Services
     internal object Delete(int id, string userId)
     {
       var data = GetById(id);
+      if(data == null)
+      {
+        throw new Exception("Invalid Keep ID");
+      }
       if(data.CreatorId != userId)
       {
           throw new Exception("Invalid Edit Permissions");

@@ -49,6 +49,18 @@ namespace keepr.Repositories
       }, new {id}, splitOn: "id").FirstOrDefault();
     }
 
+    internal IEnumerable<VaultKeepViewModel> GetKeepsByVaultId(int id)
+    {
+      string sql = @"
+      SELECT 
+      k.*,
+      vk.id AS VaultKeepId
+      FROM vaultkeeps vk
+      JOIN keeps k ON k.id = vk.keepId
+      WHERE vaultId = @id";
+      return _db.Query<VaultKeepViewModel>(sql, new{id});
+    }
+
     internal Keep Create(Keep newKeep)
     {
       string sql = @"
