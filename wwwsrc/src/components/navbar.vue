@@ -1,12 +1,13 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center">
+      <div class="d-flex">
         <h1 class="border border-primary">K</h1>
+        <h1>eepr</h1>
       </div>
     </router-link>
     <button
-      class="navbar-toggler"
+      class="navbar-toggler text-right"
       type="button"
       data-toggle="collapse"
       data-target="#navbarText"
@@ -16,7 +17,10 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarText">
+    <div
+      class="collapse navbar-collapse d-flex justify-content-end"
+      id="navbarText"
+    >
       <span class="navbar-text">
         <!-- Consider changing this to a profile picture -->
         <button
@@ -26,7 +30,13 @@
         >
           Login
         </button>
-        <button class="btn btn-danger" @click="logout" v-else>logout</button>
+        <button
+          class="btn btn-danger d-flex justify-content-end"
+          @click="logout"
+          v-else
+        >
+          logout
+        </button>
       </span>
     </div>
   </nav>

@@ -25,8 +25,8 @@ namespace keepr.Services
 
     internal VaultKeep Create(VaultKeep newVK)
     {
-      newVK.Id = _repo.Create(newVK);
-      return newVK;
+      return _repo.Create(newVK);
+      
     }
 
     internal object Delete(int id, string userId)

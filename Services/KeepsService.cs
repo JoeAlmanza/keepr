@@ -33,12 +33,12 @@ namespace keepr.Services
     }
 
 
-    internal IEnumerable<Keep> GetByVaultId(int id)
+    internal IEnumerable<VaultKeepViewModel> GetByVaultId(int id)
     {
-      var vault = _repo.GetById(id);
-      if(vault == null){
-        throw new Exception("Invalid Vault Id");
-      }
+      // var vault = _repo.GetById(id);
+      // if(vault == null){
+      //   throw new Exception("Invalid Vault Id");
+      // }
       return _repo.GetKeepsByVaultId(id);
     }
 

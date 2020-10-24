@@ -20,15 +20,16 @@ namespace keepr.Repositories
       return _db.QueryFirstOrDefault<VaultKeep>(sql, new{id});
     }
 
-    internal int Create(VaultKeep newVK)
+    internal VaultKeep Create(VaultKeep newVK)
     {
       string sql = @"
       INSERT INTO vaultkeeps
       (creatorId, vaultId, keepId)
       VALUES
       (@CreatorId, @VaultId, @KeepId);
-      SELECT LAST_INSERT_ID();";
-      return _db.ExecuteScalar<int>(sql, newVK);
+      SELECT LAST_INSERT_ID()";
+      newVK.Id = _db.ExecuteScalar<int>(sql, newVK);
+      return newVK;
       
     }
 

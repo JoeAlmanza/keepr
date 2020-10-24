@@ -23,7 +23,7 @@ namespace keepr.Services
       {
           throw new Exception("Invalid Id");
       }
-      if(data.CreatorId != userId && !data.IsPrivate)
+      if(data.IsPrivate)
       {
         throw new Exception("Unable to view private vaults");
       }
