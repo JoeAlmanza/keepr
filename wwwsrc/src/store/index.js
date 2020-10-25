@@ -53,7 +53,7 @@ export default new Vuex.Store({
       }
     },
 
-    async getActiveProfile({ commit, dispatch }, profileId) {
+    async getActiveProfile({ commit }, profileId) {
       try {
         let res = await api.get("profiles/" + profileId);
         commit("setActiveProfile", res.data);
@@ -93,6 +93,16 @@ export default new Vuex.Store({
       try {
         await api.delete("keeps/" + keepId);
         dispatch("getKeeps");
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+    async deleteVault({ commit }, vault) {
+      try {
+        await api.delete("vaults/" + vault.id);
+        let res = await api.get("profiles/" + vault.creatorId + "/vaults");
+        commit("setProfileVaults", res.data);
       } catch (error) {
         console.error(error);
       }

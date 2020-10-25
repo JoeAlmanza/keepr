@@ -1,16 +1,20 @@
 <template>
-  <div class="keep-component card">
+  <div class="keep-component card col-5 col-lg-2 mx-3 my-2 bg-dark text-light">
     <i
       class="fa fa-times text-danger"
       v-if="profile.id == keepProp.creatorId"
       @click="deleteKeep"
       aria-hidden="true"
     ></i>
-    <img :src="keepProp.img" class="card-img-top" alt="" />
-    <div class="card-body">
-      <h3>{{ keepProp.name }}</h3>
-      <p>{{ keepProp.description }}</p>
-      <p @click="viewProfile">{{ keepProp.creator.email }}</p>
+    <img class="card-img-top mt-3" :src="keepProp.img" alt="" />
+    <div class="card-body p-2">
+      <h5 class="my-0" @click="viewProfile">{{ keepProp.name }}</h5>
+    </div>
+    <div class="card-body p-2">
+      <img class="avatarImg" :src="keepProp.creator.picture" alt="" />
+      <p class="my-0" @click="viewProfile">
+        <small>{{ keepProp.creator.email }}</small>
+      </p>
     </div>
   </div>
 </template>
@@ -41,4 +45,8 @@ export default {
   },
 };
 </script>
->
+<style scoped>
+.avatarImg {
+  max-width: 40px;
+}
+</style>
