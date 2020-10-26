@@ -6,6 +6,7 @@
         <h3 class="card-title">{{ keep.name }}</h3>
         <h5 class="card-title">{{ keep.description }}</h5>
         <p>{{ keep.creator.email }}</p>
+        <img :src="keep.creator.picture" alt="" />
         <p>Views: {{ keep.views }}, Keeps: {{ keep.keeps }}</p>
         <button
           class="btn btn-success"

@@ -76,7 +76,9 @@ export default {
       return this.$store.state.activeProfile;
     },
     vaults() {
-      return this.$store.state.profileVaults;
+      return this.$store.state.profileVaults.filter(
+        (v) => v.creatorId == this.profile.id || !v.isPrivate
+      );
     },
     keeps() {
       return this.$store.state.keeps.filter(

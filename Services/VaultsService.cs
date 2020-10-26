@@ -23,7 +23,8 @@ namespace keepr.Services
       {
           throw new Exception("Invalid Id");
       }
-      if(data.IsPrivate)
+      if(data.CreatorId != userId && data.IsPrivate == true)
+      // if(data.IsPrivate && data.CreatorId != userId)
       {
         throw new Exception("Unable to view private vaults");
       }
@@ -54,7 +55,7 @@ namespace keepr.Services
 
     internal IEnumerable<Vault> GetVaultsByProfileId(string queryId, string userId)
     {
-      return _repo.GetByCreatorId(queryId).ToList().FindAll(v => v.CreatorId == userId);
+      return _repo.GetByCreatorId(queryId).ToList().FindAll(v => v.CreatorId == queryId);
     }
   }
 }

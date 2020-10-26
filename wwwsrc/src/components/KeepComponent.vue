@@ -31,7 +31,7 @@
         @click="viewProfile"
         alt=""
       />
-      <p class="my-0 linkPointer" @click="viewProfile">
+      <p class="my-0 linkPointer">
         <small>{{ keepProp.creator.email }}</small>
       </p>
     </div>

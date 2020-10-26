@@ -4,9 +4,10 @@
 
 Keepr is a social network that allows users to visually share and discover new interests by posting images or videos that can be "kept" in a collection by those who like the content.
 
-> A collection(`vault`) of posts(`keeps`) with a common theme. 
+> A collection(`vault`) of posts(`keeps`) with a common theme.
 
 Users can view the profiles of other users to see
+
 - The users name and profile image
 - Their public collection of `vaults`
 - `Keeps` the user has created
@@ -21,13 +22,13 @@ Keepr is a typical project where some of the basic layouts have been thought up 
 
 When a user clicks on a keep from the main page the `keep` should be opened up in a more detailed view (i.e. modal see Mock) where they can then choose to add it to one of their `vault`s.
 
-Vaults themselves are relatively straight forward. They only require a `Name`, `Description`, and `IsPrivate` properties. This object will then be used as a part of a relationship to find all the `keep`s that have been added to it. 
+Vaults themselves are relatively straight forward. They only require a `Name`, `Description`, and `IsPrivate` properties. This object will then be used as a part of a relationship to find all the `keep`s that have been added to it.
 
-For example I may really like game art and thus: 
+For example I may really like game art and thus:
 
 > As a user I can create a `vault` named **_Sweet Game Art_** so that I can have a collection to store the `keep`s I like.
 
-Lastly I can view other members profiles to see all the `vault`s and `keep`s they have created *(only the public vaults of other users)*, and look at the `keep`s in each of their `vault`s.
+Lastly I can view other members profiles to see all the `vault`s and `keep`s they have created _(only the public vaults of other users)_, and look at the `keep`s in each of their `vault`s.
 
 ### Where is the data?
 
@@ -37,7 +38,7 @@ Users will be allowed to create `vault`s where they can organize the posts(`keep
 
 In addition to creating and deleting `keep`s and `vault`s, users can add and remove `keep`s from their `vault`s
 
-A single user can have many `vault`s but each `vault` will only belong to a single user. 
+A single user can have many `vault`s but each `vault` will only belong to a single user.
 
 > See references below for the UML diagram breaking down properties and relationships for these models.
 
@@ -49,16 +50,15 @@ Due to the privacy of our users, Vaults marked private may only be retrieved by 
 
 ### Adhering to the Mock
 
-You have been provided the following Figma to provide you the general layout. While this is not strictly required, consider that many of the design descisions (rounded corners, page layout, masonry) are all very much in line with modern design principals. While you are free to alter the theme, strict adherence to the layouts depicted in the mocks is manditory. 
+You have been provided the following Figma to provide you the general layout. While this is not strictly required, consider that many of the design descisions (rounded corners, page layout, masonry) are all very much in line with modern design principals. While you are free to alter the theme, strict adherence to the layouts depicted in the mocks is manditory.
 
 - [Figma Document](https://www.figma.com/file/Uui3335TxIEXWzgp4xrX9r/Keepr?node-id=0%3A1)
 - [Figma Prototype](https://www.figma.com/proto/Uui3335TxIEXWzgp4xrX9r/Keepr?node-id=1%3A53&scaling=min-zoom)
 
-
 ### BONUS Ideas - Sharing the fun
 
 - `Keep`s should be tagged, allowing users find keeps by tag
-- Users can create custom tags 
+- Users can create custom tags
 - Tags are not duplicated (Games,games,GAMES)
 - Write a few tests for your components 80/20.
 - Implement pagination or infinite scroll
@@ -66,27 +66,19 @@ You have been provided the following Figma to provide you the general layout. Wh
 
 # Requirements
 
-- Visitors can see all `keep`s (login not required)
-- `Keep` cards are displayed in accordance to mock
-	- A `keep` card includes image, title, creator avatar
-	- Clicking on the creator avatar navigates to the creators profile page *(stop propagate)*
-- Cards follow a mansonry layout *(bootstrap card columns OR masonry)*
-- Clicking on a `keep` card opens the `keep` in a modal which adheres to mock
-	- Keep Count
-	- View Count
-	- Keep Description
-	- Keep Title
-	- Keep Creator name and avatar
-	- Keep Image
-	- Add to vault functionality
-- All users have a public profile page
+X Visitors can see all `keep`s (login not required)
+X `Keep` cards are displayed in accordance to mock - A `keep` card includes image, title, creator avatar - Clicking on the creator avatar navigates to the creators profile page _(stop propagate)_
+
+- Cards follow a mansonry layout _(bootstrap card columns OR masonry)_
+  X Clicking on a `keep` card opens the `keep` in a modal which adheres to mock - Keep Count - View Count - Keep Description - Keep Title - Keep Creator name and avatar - Keep Image - Add to vault functionality
+  X All users have a public profile page
 - The profile page adheres to mock:
-	- **Public** vaults
-	- **Private** vaults if it is their own page
-	- Keeps created by that user
-	- Total `keep`s count
-	- Total public `vault`s count
-	- The users name and avatar
+  - **Public** vaults
+  - **Private** vaults if it is their own page
+  - Keeps created by that user
+  - Total `keep`s count
+  - Total public `vault`s count
+  - The users name and avatar
 - Each `vault` has its own route where users can view all of the `keeps` in the vault
 - On the `vault` page, if the `vault` is private and not the active users the request fails
 - From the `vault` page if the user is the creator they can remove `keep`s from the `vault`
@@ -105,5 +97,6 @@ You have been provided the following Figma to provide you the general layout. Wh
 > Make sure you test it. When You are finished submit your project to the gradebook and notify your instructor
 
 ---
-***UML Reference***
+
+**_UML Reference_**
 ![reference](./References.png)

@@ -37,9 +37,9 @@ namespace keepr.Repositories
     {
       string sql = @"
       INSERT INTO vaults
-      (creatorId, name, description)
+      (creatorId, name, description, isPrivate)
       VALUES
-      (@CreatorId, @Name, @Description);
+      (@CreatorId, @Name, @Description, @isPrivate);
       SELECT LAST_INSERT_ID();";
       newVault.Id = _db.ExecuteScalar<int>(sql, newVault);
       return newVault;
@@ -53,7 +53,7 @@ namespace keepr.Repositories
       prof.*
       FROM vaults vlt
       JOIN profiles prof ON vlt.creatorId = prof.Id
-      WHERE vlt.creatorId = @Id";
+      WHERE vlt.creatorId = @id";
       return _db.Query<Vault, Profile, Vault>(sql, (vault, profile) =>
       {
         vault.Creator = profile;

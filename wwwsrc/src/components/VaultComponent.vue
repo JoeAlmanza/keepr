@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="vault-component card col-5 col-lg-3 ml-3 my-2 bg-dark text-light"
-    @click="viewVault"
-  >
+  <div class="vault-component card col-5 col-lg-3 ml-3 my-2 bg-dark text-light">
     <i
       class="fa fa-times text-danger linkPointer"
       v-if="profile.id == vaultProp.creatorId"
@@ -10,8 +7,8 @@
       aria-hidden="true"
     ></i>
     <div class="card-body">
-      <h5>{{ vaultProp.name }}</h5>
-      <p>{{ vaultProp.description }}</p>
+      <h5 @click="viewVault" class="linkPointer">{{ vaultProp.name }}</h5>
+      <p @click="viewVault" class="linkPointer">{{ vaultProp.description }}</p>
     </div>
   </div>
 </template>
@@ -33,10 +30,13 @@ export default {
       this.$store.dispatch("deleteVault", this.vaultProp);
     },
     viewVault() {
-      this.$router.push({
-        name: "Vault",
-        params: { id: this.vaultProp.id },
-      });
+      if (!this.vaultProp.isPrivate) {
+        this.$router.push({
+          name: "Vault",
+          params: { id: this.vaultProp.id },
+        });
+      }
+      return "This vault is private!";
     },
   },
   components: {},
