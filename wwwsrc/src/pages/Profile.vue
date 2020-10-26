@@ -12,9 +12,10 @@
     </div>
     <br />
     <h3>
-      <u>Vaults</u>:<i
+      <u>Vaults</u>:
+      <i
         v-if="profile.id == activeProfile.id"
-        class="fa fa-plus-square"
+        class="fa fa-plus-square text-success"
         aria-hidden="true"
       ></i>
     </h3>
@@ -27,9 +28,10 @@
     </div>
 
     <h3>
-      <u>Keeps</u>:<i
+      <u>Keeps</u>:
+      <i
         v-if="profile.id == activeProfile.id"
-        class="fa fa-plus-square"
+        class="fa fa-plus-square text-success"
         aria-hidden="true"
       ></i>
     </h3>

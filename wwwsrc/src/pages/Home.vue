@@ -1,7 +1,7 @@
 <template>
   <div class="home container-fluid">
     <h1>Welcome</h1>
-    <div class="row card-columns justify-content-center">
+    <div class="row card-columns">
       <!-- <div class="card-columns col-12 mx-1"> -->
       <keepComponent v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
       <!-- </div> -->

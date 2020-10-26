@@ -2,7 +2,7 @@
   <div class="modal fade" :id="id" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content" :class="color">
-        <div class="modal-header">
+        <div class="modal-header bg-dark">
           <slot name="header"></slot>
           <button
             type="button"
@@ -13,8 +13,8 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <slot name="body"></slot>
-        <div class="modal-footer">
+        <slot name="body"> </slot>
+        <div class="modal-footer bg-dark">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Close
           </button>
@@ -37,12 +37,6 @@ export default {
       default: "bg-white",
     },
   },
-  data() {
-    return {};
-  },
-  computed: {},
-  methods: {},
-  components: {},
 };
 </script>
 
