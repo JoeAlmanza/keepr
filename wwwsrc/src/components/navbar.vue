@@ -6,6 +6,15 @@
         <h1>eepr</h1>
       </div>
     </router-link>
+    <router-link
+      class="navbar-brand d-flex"
+      :to="{ name: 'Profile', params: { id: profile.id } }"
+    >
+      <div class="d-flex">
+        <h1 class="border border-primary">P</h1>
+        <h1>rofile</h1>
+      </div>
+    </router-link>
     <button
       class="navbar-toggler text-right"
       type="button"
@@ -58,6 +67,11 @@ export default {
     async logout() {
       resetBearer();
       await this.$auth.logout({ returnTo: window.location.origin });
+    },
+  },
+  computed: {
+    profile() {
+      return this.$store.state.profile;
     },
   },
 };
