@@ -28,6 +28,7 @@ namespace keepr.Controllers
         {
             Profile userInfo = await HttpContext.GetUserInfoAsync<Profile>();
             newVK.CreatorId = userInfo.Id;
+            newVK.Creator = userInfo;
             return Ok(_vks.Create(newVK));
         }
         catch (Exception e)

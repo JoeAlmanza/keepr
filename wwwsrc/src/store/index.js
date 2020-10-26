@@ -80,6 +80,15 @@ export default new Vuex.Store({
       }
     },
 
+    async getVaultKeeps({ commit }, vaultId) {
+      try {
+        let res = await api.get("vaults/" + vaultId + "/keeps");
+        commit("setVaultKeeps", res.data);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
     async getProfileVaults({ commit }, profileId) {
       try {
         let res = await api.get("profiles/" + profileId + "/vaults");

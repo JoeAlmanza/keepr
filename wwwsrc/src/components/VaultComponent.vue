@@ -1,5 +1,8 @@
 <template>
-  <div class="vault-component card col-5 col-lg-3 ml-3 my-2 bg-dark text-light">
+  <div
+    class="vault-component card col-5 col-lg-3 ml-3 my-2 bg-dark text-light"
+    @click="viewVault"
+  >
     <i
       class="fa fa-times text-danger"
       v-if="profile.id == vaultProp.creatorId"
@@ -28,6 +31,12 @@ export default {
   methods: {
     deleteVault() {
       this.$store.dispatch("deleteVault", this.vaultProp);
+    },
+    viewVault() {
+      this.$router.push({
+        name: "Vault",
+        params: { id: this.vaultProp.id },
+      });
     },
   },
   components: {},
