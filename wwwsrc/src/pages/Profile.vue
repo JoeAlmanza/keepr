@@ -15,8 +15,10 @@
       <u>Vaults</u>:
       <i
         v-if="profile.id == activeProfile.id"
-        class="fa fa-plus-square text-success"
+        class="fa fa-plus-square text-success linkPointer"
         aria-hidden="true"
+        data-toggle="modal"
+        :data-target="'#' + 'modal' + 'createVault'"
       ></i>
     </h3>
     <div class="row card-columns justify-content-start">
@@ -31,23 +33,40 @@
       <u>Keeps</u>:
       <i
         v-if="profile.id == activeProfile.id"
-        class="fa fa-plus-square text-success"
+        class="fa fa-plus-square text-success linkPointer"
         aria-hidden="true"
+        data-toggle="modal"
+        :data-target="'#' + 'modal' + 'createKeep'"
       ></i>
     </h3>
     <div class="row card-columns justify-content-start">
       <keep-component v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
     </div>
+    <create-modal :id="'modal' + 'createKeep'">
+      <template v-slot:body>
+        <create-keep />
+      </template>
+    </create-modal>
+    <create-modal :id="'modal' + 'createVault'">
+      <template v-slot:body>
+        <create-vault />
+      </template>
+    </create-modal>
   </div>
 </template>
 
 <script>
+import CreateModal from "../components/CreateModal.vue";
+import CreateVault from "../components/CreateVault.vue";
+import CreateKeep from "../components/CreateKeep.vue";
 import vaultComponent from "../components/VaultComponent.vue";
 import keepComponent from "../components/KeepComponent.vue";
 export default {
   name: "profile",
   data() {
-    return {};
+    return {
+      newKeep: {},
+    };
   },
   computed: {
     profile() {
@@ -64,6 +83,9 @@ export default {
         (k) => k.creatorId == this.activeProfile.id
       );
     },
+    // modalId() {
+    //   return "modal" + "createKeep";
+    // },
   },
   mounted() {
     this.$store.dispatch("getActiveProfile", this.$route.params.id);
@@ -77,6 +99,9 @@ export default {
   components: {
     keepComponent,
     vaultComponent,
+    CreateModal,
+    CreateKeep,
+    CreateVault,
   },
 };
 </script>
@@ -88,5 +113,8 @@ export default {
 }
 .infoRow {
   height: 23vh;
+}
+.linkPointer {
+  cursor: pointer;
 }
 </style>

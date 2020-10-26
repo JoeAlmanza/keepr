@@ -1,7 +1,7 @@
 <template>
   <div class="keep-component card col-5 col-lg-2 mx-3 my-2 bg-dark text-light">
     <i
-      class="fa fa-times text-danger"
+      class="fa fa-times text-danger linkPointer"
       v-if="profile.id == keepProp.creatorId"
       @click="deleteKeep"
       aria-hidden="true"

@@ -4,7 +4,7 @@
     @click="viewVault"
   >
     <i
-      class="fa fa-times text-danger"
+      class="fa fa-times text-danger linkPointer"
       v-if="profile.id == vaultProp.creatorId"
       @click="deleteVault"
       aria-hidden="true"
@@ -43,4 +43,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.linkPointer {
+  cursor: pointer;
+}
+</style>
