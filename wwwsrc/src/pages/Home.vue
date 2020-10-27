@@ -13,13 +13,25 @@
 import keepComponent from "../components/KeepComponent.vue";
 export default {
   name: "home",
-  mounted() {
-    this.$store.dispatch("getKeeps");
-  },
   computed: {
+    profile() {
+      return this.$store.state.profile;
+    },
     keeps() {
       return this.$store.state.keeps;
     },
+  },
+  watch: {
+    profile: function(userProfile) {
+      if (userProfile.id) {
+        this.$store.dispatch("getProfileVaults", this.profile.id);
+      } else {
+        router.push({ name: "Home" });
+      }
+    },
+  },
+  mounted() {
+    this.$store.dispatch("getKeeps");
   },
   components: {
     keepComponent,

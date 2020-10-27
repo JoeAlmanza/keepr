@@ -5,7 +5,7 @@
         <img class="avatarImg" :src="activeProfile.picture" alt="" />
       </div>
       <div class="col-10 col-md-7">
-        <h5 @click="active">Name: {{ activeProfile.name }}</h5>
+        <h5>Name: {{ activeProfile.name }}</h5>
         <h5>Vaults: {{ vaults.length }}</h5>
         <h5>Keeps: {{ keeps.length }}</h5>
       </div>
@@ -93,11 +93,7 @@ export default {
     this.$store.dispatch("getActiveProfile", this.$route.params.id);
     this.$store.dispatch("getProfileVaults", this.$route.params.id);
   },
-  methods: {
-    active() {
-      console.log(this.$store.state.activeProfile);
-    },
-  },
+  methods: {},
   components: {
     keepComponent,
     vaultComponent,

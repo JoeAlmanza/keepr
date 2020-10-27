@@ -16,6 +16,18 @@
           Add To Vault
         </button>
       </div>
+      <div v-if="addToggle">
+        <select
+          v-model="newVaultKeep.vaultId"
+          @change="addVaultKeep"
+          class="custom-select"
+          id=""
+        >
+          <option :value="vault.id" v-for="vault in vaults" :key="vault.id">{{
+            vault.name
+          }}</option>
+        </select>
+      </div>
     </div>
   </div>
 </template>
@@ -24,14 +36,46 @@
 export default {
   name: "keep-details",
   data() {
-    return {};
+    return {
+      addToggle: false,
+      newVaultKeep: {},
+    };
+  },
+  mounted() {
+    this.$store.dispatch("getProfileVaults", this.profile.id);
   },
   computed: {
+    profile() {
+      return this.$store.state.profile;
+    },
     keep() {
       return this.$store.state.activeKeep;
     },
+    vaults() {
+      return this.$store.state.profileVaults;
+    },
   },
-  methods: {},
+  watch: {
+    profile: function(userProfile) {
+      if (userProfile.id) {
+        this.$store.dispatch("getProfileVaults", this.profile.id);
+      } else {
+        router.push({ name: "Home" });
+      }
+    },
+  },
+  methods: {
+    addVaultKeep() {
+      this.$store.dispatch("createVaultKeep", {
+        vaultId: this.newVaultKeep.vaultId,
+        keepId: this.keep.id,
+      });
+      // this.$router.push({
+      //   name: "Vault",
+      //   params: { id: this.newVaultKeep.vaultId },
+      // });
+    },
+  },
   components: {},
 };
 </script>
