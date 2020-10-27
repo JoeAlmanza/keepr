@@ -70,10 +70,12 @@ export default {
         vaultId: this.newVaultKeep.vaultId,
         keepId: this.keep.id,
       });
-      // this.$router.push({
-      //   name: "Vault",
-      //   params: { id: this.newVaultKeep.vaultId },
-      // });
+      this.$router.push({
+        name: "Vault",
+        params: { id: this.newVaultKeep.vaultId },
+      });
+      $(".modal-backdrop").hide();
+      $(".modal").hide();
     },
   },
   components: {},

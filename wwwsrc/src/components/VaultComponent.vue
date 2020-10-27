@@ -30,7 +30,10 @@ export default {
       this.$store.dispatch("deleteVault", this.vaultProp);
     },
     viewVault() {
-      if (!this.vaultProp.isPrivate) {
+      if (
+        !this.vaultProp.isPrivate ||
+        this.vaultProp.creatorId == this.profile.id
+      ) {
         this.$router.push({
           name: "Vault",
           params: { id: this.vaultProp.id },

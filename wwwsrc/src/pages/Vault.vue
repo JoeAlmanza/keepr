@@ -1,5 +1,6 @@
 <template>
   <div class="vault container-fluid">
+    <h2><u>Vault Keeps</u>:</h2>
     <div class="row card-columns justify-content-center">
       <keep-component v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
     </div>
@@ -21,7 +22,6 @@ export default {
       return this.$store.state.profile;
     },
     keeps() {
-      console.log(this.$store.state.vaultKeeps);
       return this.$store.state.vaultKeeps;
     },
   },

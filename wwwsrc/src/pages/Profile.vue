@@ -1,6 +1,9 @@
 <template>
   <div class="profile container-fluid">
-    <div class="row my-5 infoRow">
+    <h2 class="text-center">
+      <u>{{ activeProfile.name }}'s Profile</u>
+    </h2>
+    <div class="row my-2 infoRow align-items-center">
       <div class="col-10 col-md-3 text-center">
         <img class="avatarImg" :src="activeProfile.picture" alt="" />
       </div>
@@ -68,6 +71,10 @@ export default {
       newKeep: {},
     };
   },
+  mounted() {
+    this.$store.dispatch("getActiveProfile", this.$route.params.id);
+    this.$store.dispatch("getProfileVaults", this.$route.params.id);
+  },
   computed: {
     profile() {
       return this.$store.state.profile;
@@ -77,7 +84,8 @@ export default {
     },
     vaults() {
       return this.$store.state.profileVaults.filter(
-        (v) => v.creatorId == this.profile.id || !v.isPrivate
+        (v) => v.creatorId == this.activeProfile.id
+        // && !v.isPrivate
       );
     },
     keeps() {
@@ -88,10 +96,6 @@ export default {
     // modalId() {
     //   return "modal" + "createKeep";
     // },
-  },
-  mounted() {
-    this.$store.dispatch("getActiveProfile", this.$route.params.id);
-    this.$store.dispatch("getProfileVaults", this.$route.params.id);
   },
   methods: {},
   components: {

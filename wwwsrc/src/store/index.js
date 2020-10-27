@@ -104,6 +104,16 @@ export default new Vuex.Store({
       }
     },
 
+    async updateKeep({ dispatch }, keepData) {
+      try {
+        console.log(keepData.id);
+        let res = await api.put("keeps/" + keepData.id, keepData);
+        dispatch("setActiveKeep", res.data);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
     async createVault({ dispatch }, vaultData) {
       try {
         let res = await api.post("vaults", vaultData);

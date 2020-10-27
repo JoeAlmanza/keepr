@@ -70,8 +70,15 @@ X Visitors can see all `keep`s (login not required)
 X `Keep` cards are displayed in accordance to mock - A `keep` card includes image, title, creator avatar - Clicking on the creator avatar navigates to the creators profile page _(stop propagate)_
 
 - Cards follow a mansonry layout _(bootstrap card columns OR masonry)_
-  X Clicking on a `keep` card opens the `keep` in a modal which adheres to mock - Keep Count - View Count - Keep Description - Keep Title - Keep Creator name and avatar - Keep Image - Add to vault functionality
-  X All users have a public profile page
+- Clicking on a `keep` card opens the `keep` in a modal which adheres to mock
+  - Keep Count
+  - View Count
+  - Keep Description
+  - Keep Title
+  - Keep Creator name and avatar
+  - Keep Image
+  - Add to vault functionality
+- All users have a public profile page
 - The profile page adheres to mock:
   - **Public** vaults
   - **Private** vaults if it is their own page
