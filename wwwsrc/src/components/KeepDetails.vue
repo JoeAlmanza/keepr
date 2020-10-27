@@ -10,10 +10,17 @@
         <p>Views: {{ keep.views }}, Keeps: {{ keep.keeps }}</p>
         <button
           class="btn btn-success"
-          v-if="this.$auth.isAuthenticated"
+          v-if="this.$auth.isAuthenticated && !keep.vaultKeepId"
           @click="addToggle = !addToggle"
         >
           Add To Vault
+        </button>
+        <button
+          class="btn btn-danger"
+          v-if="this.$auth.isAuthenticated && keep.vaultKeepId"
+          @click="removeVaultKeep"
+        >
+          Remove from Vault
         </button>
       </div>
       <div v-if="addToggle">
@@ -74,8 +81,17 @@ export default {
         name: "Vault",
         params: { id: this.newVaultKeep.vaultId },
       });
+      this.keep.keeps += 1;
+      this.$store.dispatch("updateKeep", this.keep);
       $(".modal-backdrop").hide();
       $(".modal").hide();
+    },
+
+    removeVaultKeep() {
+      this.$store.dispatch("removeVaultKeep", {
+        vaultKeepId: this.keep.vaultKeepId,
+        vaultId: this.$route.params.id,
+      });
     },
   },
   components: {},

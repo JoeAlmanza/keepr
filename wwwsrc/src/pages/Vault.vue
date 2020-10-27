@@ -22,6 +22,7 @@ export default {
       return this.$store.state.profile;
     },
     keeps() {
+      console.log(this.$store.state.vaultKeeps);
       return this.$store.state.vaultKeeps;
     },
   },
