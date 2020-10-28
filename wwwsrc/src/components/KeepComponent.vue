@@ -1,22 +1,17 @@
 <template>
-  <div class="keep-component card mt-1 bg-dark text-light">
-    <i
-      class="fa fa-times text-danger linkPointer"
-      v-if="profile.id == keepProp.creatorId"
-      @click="deleteKeep"
-      aria-hidden="true"
-    ></i>
-    <img
-      class="card-img-top mt-3 linkPointer"
-      @click="setActive"
-      :src="keepProp.img"
-      data-toggle="modal"
-      :data-target="'#' + modalId"
-      alt=""
-    />
-    <div class="card-body p-2 linkPointer">
+  <div
+    class="keep-component card mt-1 text-light"
+    v-bind:style="{
+      backgroundImage: 'url(' + keepProp.img + ')',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center center',
+      backgroundRepeat: 'no-repeat',
+      height: '20vh',
+    }"
+  >
+    <div class="card-body p-2 linkPointer d-flex flex-row-reverse">
       <h5
-        class="my-0"
+        class="my-0 textShadow"
         @click="setActive"
         data-toggle="modal"
         :data-target="'#' + modalId"
@@ -24,16 +19,20 @@
         {{ keepProp.name }}
       </h5>
     </div>
-    <div class="card-body p-2">
-      <img
-        class="avatarImg linkPointer"
-        :src="keepProp.creator.picture"
+    <div class="card-body p-2 text-right d-flex justify-content-end">
+      <i
+        class="fa fa-user-circle-o linkPointer"
         @click="viewProfile"
-        alt=""
-      />
-      <!-- <p class="my-0 linkPointer">
-        <small>{{ keepProp.creator.email }}</small>
-      </p> -->
+        aria-hidden="true"
+      ></i>
+    </div>
+    <div class="card-body p-2 text-right d-flex justify-content-end">
+      <i
+        class="fa fa-trash text-danger p-1 linkPointer d-flex justify-content-end"
+        v-if="profile.id == keepProp.creatorId"
+        @click="deleteKeep"
+        aria-hidden="true"
+      ></i>
     </div>
     <keep-modal :id="modalId">
       <template v-slot:body>
@@ -54,7 +53,6 @@ export default {
   },
   computed: {
     profile() {
-      // console.log(this.$store.state.profile);
       return this.$store.state.profile;
     },
     modalId() {
@@ -83,9 +81,6 @@ export default {
 };
 </script>
 <style scoped>
-.avatarImg {
-  max-width: 25px;
-}
 .linkPointer {
   cursor: pointer;
 }
@@ -93,5 +88,8 @@ export default {
 .card {
   display: inline-block;
   min-width: 163px;
+}
+.textShadow {
+  text-shadow: 1px 1px black;
 }
 </style>

@@ -84,23 +84,5 @@ namespace keepr.Controllers
         }
     }
 
-
-    // [HttpPut("{id}")]
-    // [Authorize]
-    // public async Task<ActionResult<Vault>> Edit([FromBody] Vault updated, int id)
-    // {
-    //     try
-    //     {
-    //         Profile userInfo = await HttpContext.GetUserInfoAsync<Profile>();
-    //         updated.CreatorId = userInfo.Id;
-    //         updated.Creator = userInfo;
-    //         updated.Id = id;
-    //         return Ok(_vs.Edit(updated)); 
-    //     }
-    //     catch (Exception e)
-    //     {
-    //         return BadRequest(e.Message);
-    //     }
-    // }
   }
 }

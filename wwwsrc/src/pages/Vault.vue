@@ -23,14 +23,13 @@ export default {
     return {};
   },
   mounted() {
-    this.$store.dispatch("getVaultKeeps", this.$route.params.id);
+    this.$store.dispatch("getVaultKeeps", this.$route.params.id, this.profile);
   },
   computed: {
     profile() {
       return this.$store.state.profile;
     },
     keeps() {
-      console.log(this.$store.state.vaultKeeps);
       return this.$store.state.vaultKeeps;
     },
   },

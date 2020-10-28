@@ -14,7 +14,7 @@
       </div>
     </div>
     <br />
-    <h3>
+    <h3 class="mt-3">
       <u>Vaults</u>:
       <i
         v-if="profile.id == activeProfile.id"

@@ -3,10 +3,12 @@
     <div class="card bg-dark text-light text-center m-0" v-if="keep.id">
       <img :src="keep.img" class="card-img-top modalImg" alt="" />
       <div class="card-body">
-        <h3 class="card-title">{{ keep.name }}</h3>
+        <h3 class="card-title">
+          <u>{{ keep.name }}</u>
+        </h3>
         <h5 class="card-title">{{ keep.description }}</h5>
-        <p>{{ keep.creator.email }}</p>
-        <img :src="keep.creator.picture" alt="" />
+        <p>By: {{ keep.creator.email }}</p>
+        <img class="avatarImg" :src="keep.creator.picture" alt="" />
         <p>Views: {{ keep.views }}, Keeps: {{ keep.keeps }}</p>
 
         <button
@@ -75,7 +77,7 @@ export default {
   },
   methods: {
     addVaultKeep() {
-      this.$store.dispatch("updateKeep", this.keep);
+      // this.$store.dispatch("updateKeep", this.keep);
       this.$store.dispatch("createVaultKeep", {
         vaultId: this.newVaultKeep.vaultId,
         keepId: this.keep.id,
@@ -104,5 +106,8 @@ export default {
 <style scoped>
 .modalImg {
   max-width: 300px;
+}
+.avatarImg {
+  max-width: 100px;
 }
 </style>
