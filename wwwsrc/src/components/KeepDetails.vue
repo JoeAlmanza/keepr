@@ -48,8 +48,17 @@ export default {
       newVaultKeep: {},
     };
   },
-  mounted() {
-    this.$store.dispatch("getProfileVaults", this.profile.id);
+  // mounted() {
+  //   this.$store.dispatch("getProfileVaults", this.profile.id);
+  // },
+  watch: {
+    profile: function(userProfile) {
+      if (userProfile.id) {
+        this.$store.dispatch("getProfileVaults", this.profile.id);
+      } else {
+        router.push({ name: "Home" });
+      }
+    },
   },
   computed: {
     profile() {
@@ -60,15 +69,6 @@ export default {
     },
     vaults() {
       return this.$store.state.profileVaults;
-    },
-  },
-  watch: {
-    profile: function(userProfile) {
-      if (userProfile.id) {
-        this.$store.dispatch("getProfileVaults", this.profile.id);
-      } else {
-        router.push({ name: "Home" });
-      }
     },
   },
   methods: {

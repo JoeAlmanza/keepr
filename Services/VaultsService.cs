@@ -55,7 +55,7 @@ namespace keepr.Services
 
     internal IEnumerable<Vault> GetVaultsByProfileId(string queryId, string userId)
     {
-      return _repo.GetByCreatorId(queryId).ToList().FindAll(v => v.CreatorId == queryId);
+      return _repo.GetByCreatorId(queryId).ToList().FindAll(v => v.CreatorId == userId || v.IsPrivate == false);
     }
   }
 }

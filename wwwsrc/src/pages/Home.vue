@@ -21,15 +21,15 @@ export default {
       return this.$store.state.keeps;
     },
   },
-  watch: {
-    profile: function(userProfile) {
-      if (userProfile.id) {
-        this.$store.dispatch("getProfileVaults", this.profile.id);
-      } else {
-        router.push({ name: "Home" });
-      }
-    },
-  },
+  // watch: {
+  //   profile: function(userProfile) {
+  //     if (userProfile.id) {
+  //       this.$store.dispatch("getProfileVaults", this.profile.id);
+  //     } else {
+  //       router.push({ name: "Home" });
+  //     }
+  //   },
+  // },
   mounted() {
     this.$store.dispatch("getKeeps");
   },

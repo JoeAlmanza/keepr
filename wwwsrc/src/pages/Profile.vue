@@ -71,10 +71,6 @@ export default {
       newKeep: {},
     };
   },
-  mounted() {
-    this.$store.dispatch("getActiveProfile", this.$route.params.id);
-    this.$store.dispatch("getProfileVaults", this.$route.params.id);
-  },
   computed: {
     profile() {
       return this.$store.state.profile;
@@ -96,6 +92,12 @@ export default {
     // modalId() {
     //   return "modal" + "createKeep";
     // },
+  },
+
+  mounted() {
+    this.$store.dispatch("getActiveProfile", this.$route.params.id);
+    this.$store.dispatch("getProfileVaults", this.$route.params.id);
+    this.$store.dispatch("getKeeps");
   },
   methods: {},
   components: {
