@@ -70,7 +70,7 @@ X Visitors can see all `keep`s (login not required)
 X `Keep` cards are displayed in accordance to mock - A `keep` card includes image, title, creator avatar - Clicking on the creator avatar navigates to the creators profile page _(stop propagate)_
 
 - Cards follow a mansonry layout _(bootstrap card columns OR masonry)_
-- Clicking on a `keep` card opens the `keep` in a modal which adheres to mock
+  x- Clicking on a `keep` card opens the `keep` in a modal which adheres to mock
   - Keep Count
   - View Count
   - Keep Description
@@ -78,7 +78,7 @@ X `Keep` cards are displayed in accordance to mock - A `keep` card includes imag
   - Keep Creator name and avatar
   - Keep Image
   - Add to vault functionality
-- All users have a public profile page
+    x- All users have a public profile page
 - The profile page adheres to mock:
   - **Public** vaults
   - **Private** vaults if it is their own page
@@ -86,9 +86,9 @@ X `Keep` cards are displayed in accordance to mock - A `keep` card includes imag
   - Total `keep`s count
   - Total public `vault`s count
   - The users name and avatar
-- Each `vault` has its own route where users can view all of the `keeps` in the vault
-- On the `vault` page, if the `vault` is private and not the active users the request fails
-- From the `vault` page if the user is the creator they can remove `keep`s from the `vault`
+    x- Each `vault` has its own route where users can view all of the `keeps` in the vault
+    x- On the `vault` page, if the `vault` is private and not the active users the request fails
+    x- From the `vault` page if the user is the creator they can remove `keep`s from the `vault`
 - Anytime a `keep` is `kept in a vault` the keep count is incremented
 - Users can Register, login and automatically authenticated on refresh
 - Create and Delete Keeps

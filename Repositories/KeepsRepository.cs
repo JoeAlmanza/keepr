@@ -57,9 +57,9 @@ namespace keepr.Repositories
       vk.id AS VaultKeepId,
       prof.*
       FROM vaultkeeps vk
-      JOIN keeps k ON k.id = vk.keepId
-      JOIN profiles prof ON vk.creatorId = prof.Id 
-      WHERE vk.vaultId = @id";
+      JOIN keeps k ON vk.keepId = k.id
+      JOIN profiles prof ON k.creatorId = prof.Id 
+      WHERE vaultId = @id";
       return _db.Query<VaultKeepViewModel, Profile, VaultKeepViewModel>(sql, (vaultKeep, profile) =>
       {
         vaultKeep.Creator = profile;

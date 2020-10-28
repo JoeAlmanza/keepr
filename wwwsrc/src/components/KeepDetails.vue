@@ -9,18 +9,18 @@
         <img :src="keep.creator.picture" alt="" />
         <p>Views: {{ keep.views }}, Keeps: {{ keep.keeps }}</p>
         <button
-          class="btn btn-success"
-          v-if="this.$auth.isAuthenticated && !keep.vaultKeepId"
-          @click="addToggle = !addToggle"
-        >
-          Add To Vault
-        </button>
-        <button
           class="btn btn-danger"
           v-if="this.$auth.isAuthenticated && keep.vaultKeepId"
           @click="removeVaultKeep"
         >
           Remove from Vault
+        </button>
+        <button
+          class="btn btn-success"
+          v-if="this.$auth.isAuthenticated && !keep.vaultKeepId"
+          @click="addToggle = !addToggle"
+        >
+          Add To Vault
         </button>
       </div>
       <div v-if="addToggle">
@@ -92,6 +92,8 @@ export default {
         vaultKeepId: this.keep.vaultKeepId,
         vaultId: this.$route.params.id,
       });
+      $(".modal-backdrop").hide();
+      $(".modal").hide();
     },
   },
   components: {},
