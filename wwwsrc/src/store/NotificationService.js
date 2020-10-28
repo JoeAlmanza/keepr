@@ -17,7 +17,7 @@ export default class NotificationService {
         showCancelButton: true,
         confirmButtonColor: "teal",
         cancelButtonColor: "lightsalmon",
-        confirmButtonText: "Yes, delete it!",
+        confirmButtonText: "Confirm",
       });
       if (res.value) {
         return true;
