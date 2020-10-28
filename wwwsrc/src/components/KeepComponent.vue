@@ -21,7 +21,7 @@
     </div>
     <div class="card-body p-2 text-right d-flex justify-content-end">
       <i
-        class="fa fa-user-circle-o linkPointer"
+        class="fa fa-user-circle-o linkPointer textShadow"
         @click="viewProfile"
         aria-hidden="true"
       ></i>
@@ -91,5 +91,8 @@ export default {
 }
 .textShadow {
   text-shadow: 1px 1px black;
+}
+.card {
+  box-shadow: 2px 2px black;
 }
 </style>
