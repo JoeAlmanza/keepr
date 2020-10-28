@@ -23,8 +23,12 @@ namespace keepr.Services
       return data;
     }
 
-    internal VaultKeep Create(VaultKeep newVK)
+    internal VaultKeep Create(VaultKeep newVK, Vault vault)
     {
+      if(vault.CreatorId != newVK.CreatorId)
+      {
+        throw new Exception("Invalid Permissions");
+      }
       return _repo.Create(newVK);
       
     }
