@@ -72,9 +72,8 @@ export default {
       });
     },
     setActive() {
-      this.keepProp.views += 1;
+      // this.$store.dispatch("updateKeep", this.keepProp);
       this.$store.dispatch("setActiveKeep", this.keepProp);
-      this.$store.dispatch("updateKeep", this.keepProp);
     },
   },
   components: {

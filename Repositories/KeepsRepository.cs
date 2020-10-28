@@ -117,17 +117,5 @@ namespace keepr.Repositories
       string sql = "DELETE FROM keeps WHERE id = @id";
       _db.Execute(sql, new{id});
     }
-
-    // internal IEnumerable<Keep> GetByCreatorEmail(string queryProfileEmail)
-    // {
-    //   string sql = @"
-    //   keep.*,
-    //   prof.*
-    //   FROM keeps keep
-    //   JOIN profiles prof ON keep.creator.email = prof.email
-    //   WHERE ";
-
-      
-    // }
   }
 }

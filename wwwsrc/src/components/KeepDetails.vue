@@ -8,6 +8,7 @@
         <p>{{ keep.creator.email }}</p>
         <img :src="keep.creator.picture" alt="" />
         <p>Views: {{ keep.views }}, Keeps: {{ keep.keeps }}</p>
+
         <button
           class="btn btn-danger"
           v-if="this.$auth.isAuthenticated && keep.vaultKeepId"
@@ -15,9 +16,10 @@
         >
           Remove from Vault
         </button>
+
         <button
           class="btn btn-success"
-          v-if="this.$auth.isAuthenticated && !keep.vaultKeepId"
+          v-else-if="this.$auth.isAuthenticated && !keep.vaultKeepId"
           @click="addToggle = !addToggle"
         >
           Add To Vault
@@ -73,6 +75,7 @@ export default {
   },
   methods: {
     addVaultKeep() {
+      this.$store.dispatch("updateKeep", this.keep);
       this.$store.dispatch("createVaultKeep", {
         vaultId: this.newVaultKeep.vaultId,
         keepId: this.keep.id,
@@ -81,8 +84,6 @@ export default {
         name: "Vault",
         params: { id: this.newVaultKeep.vaultId },
       });
-      this.keep.keeps += 1;
-      this.$store.dispatch("updateKeep", this.keep);
       $(".modal-backdrop").hide();
       $(".modal").hide();
     },

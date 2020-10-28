@@ -72,6 +72,7 @@ namespace keepr.Controllers
                 updated.CreatorId = userInfo.Id;
                 updated.Creator = userInfo;
                 updated.Id = id;
+                updated.Views++;
                 return Ok(_ks.Edit(updated));
             }
             catch (Exception e)

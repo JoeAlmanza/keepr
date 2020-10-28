@@ -25,6 +25,8 @@ namespace keepr.Services
     internal Keep GetById(int id)
     {
       var data = _repo.GetById(id);
+      data.Views++;
+      _repo.Edit(data);
       if(data == null)
       {
           throw new Exception("Invalid Id");
@@ -35,10 +37,6 @@ namespace keepr.Services
 
     internal IEnumerable<VaultKeepViewModel> GetByVaultId(int id)
     {
-      // var vault = _repo.GetById(id);
-      // if(vault == null){
-      //   throw new Exception("Invalid Vault Id");
-      // }
       return _repo.GetKeepsByVaultId(id);
     }
 

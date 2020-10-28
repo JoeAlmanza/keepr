@@ -17,10 +17,13 @@ namespace keepr.Controllers
 
         private readonly VaultsService _vs;
 
-    public VaultKeepsController(VaultKeepsService vks, VaultsService vs)
+        private readonly KeepsService _ks;
+
+    public VaultKeepsController(VaultKeepsService vks, VaultsService vs, KeepsService ks)
     {
       _vks = vks;
       _vs = vs;
+      _ks = ks;
     }
 
     [HttpPost]
@@ -32,6 +35,9 @@ namespace keepr.Controllers
             Profile userInfo = await HttpContext.GetUserInfoAsync<Profile>();
             newVK.CreatorId = userInfo.Id;
             newVK.Creator = userInfo;
+            var keepData = _ks.GetById(newVK.KeepId);
+            keepData.Keeps++;
+            _ks.Edit(keepData);
             var data = _vs.GetById(userInfo.Id, newVK.VaultId);
             return Ok(_vks.Create(newVK, data));
         }
