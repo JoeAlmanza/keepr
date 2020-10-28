@@ -1,5 +1,5 @@
 <template>
-  <div class="keep-component card col-5 col-lg-2 mx-3 my-2 bg-dark text-light">
+  <div class="keep-component card mt-1 bg-dark text-light">
     <i
       class="fa fa-times text-danger linkPointer"
       v-if="profile.id == keepProp.creatorId"
@@ -31,9 +31,9 @@
         @click="viewProfile"
         alt=""
       />
-      <p class="my-0 linkPointer">
+      <!-- <p class="my-0 linkPointer">
         <small>{{ keepProp.creator.email }}</small>
-      </p>
+      </p> -->
     </div>
     <keep-modal :id="modalId">
       <template v-slot:body>
@@ -85,9 +85,14 @@ export default {
 </script>
 <style scoped>
 .avatarImg {
-  max-width: 40px;
+  max-width: 25px;
 }
 .linkPointer {
   cursor: pointer;
+}
+
+.card {
+  display: inline-block;
+  min-width: 163px;
 }
 </style>

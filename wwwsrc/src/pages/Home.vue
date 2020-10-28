@@ -1,10 +1,16 @@
 <template>
   <div class="home container-fluid">
     <h1 class="text-center"><u>Welcome</u></h1>
-    <div class="row card-columns">
-      <!-- <div class="card-columns col-12 mx-1"> -->
-      <keepComponent v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
-      <!-- </div> -->
+    <div class="row justify-content-center">
+      <div class="col-11 p-0">
+        <div class="card-columns">
+          <keepComponent
+            v-for="keep in keeps"
+            :key="keep.id"
+            :keepProp="keep"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -38,3 +44,4 @@ export default {
   },
 };
 </script>
+<style scoped></style>

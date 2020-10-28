@@ -1,5 +1,5 @@
 <template>
-  <div class="vault-component card col-5 col-lg-3 ml-3 my-2 bg-dark text-light">
+  <div class="vault-component card mt-1 bg-dark text-light">
     <i
       class="fa fa-times text-danger linkPointer"
       v-if="profile.id == vaultProp.creatorId"
@@ -49,5 +49,10 @@ export default {
 <style scoped>
 .linkPointer {
   cursor: pointer;
+}
+
+.card {
+  display: inline-block;
+  min-width: 163px;
 }
 </style>

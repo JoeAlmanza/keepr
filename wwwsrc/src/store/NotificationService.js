@@ -15,8 +15,8 @@ export default class NotificationService {
         //   alt
         // />`,
         showCancelButton: true,
-        confirmButtonColor: "teal",
-        cancelButtonColor: "lightsalmon",
+        confirmButtonColor: "dodgerblue",
+        cancelButtonColor: "crimson",
         confirmButtonText: "Confirm",
       });
       if (res.value) {

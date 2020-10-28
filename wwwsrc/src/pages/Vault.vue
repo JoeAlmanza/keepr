@@ -1,8 +1,16 @@
 <template>
   <div class="vault container-fluid">
     <h2><u>Vault Keeps</u>:</h2>
-    <div class="row card-columns justify-content-center">
-      <keep-component v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
+    <div class="row justify-content-center">
+      <div class="col-11 p-0">
+        <div class="card-columns">
+          <keep-component
+            v-for="keep in keeps"
+            :key="keep.id"
+            :keepProp="keep"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>

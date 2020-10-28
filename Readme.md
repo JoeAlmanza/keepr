@@ -69,7 +69,7 @@ You have been provided the following Figma to provide you the general layout. Wh
 <!-- - Visitors can see all `keep`s (login not required) -->
 <!-- `Keep` cards are displayed in accordance to mock - A `keep` card includes image, title, creator avatar - Clicking on the creator avatar navigates to the creators profile page _(stop propagate)_ -->
 
-- Cards follow a mansonry layout _(bootstrap card columns OR masonry)_
+<!-- - Cards follow a mansonry layout _(bootstrap card columns OR masonry)_ -->
   <!-- - Clicking on a `keep` card opens the `keep` in a modal which adheres to mock
     - Keep Count
     - View Count
@@ -79,11 +79,15 @@ You have been provided the following Figma to provide you the general layout. Wh
     - Keep Image
     - Add to vault functionality -->
   <!-- - All users have a public profile page -->
-- The profile page adheres to mock:
+<!-- - The profile page adheres to mock: -->
+
     <!-- - **Public** vaults -->
+
   <!-- - **Private** vaults if it is their own page -->
+
     <!-- - Keeps created by that user -->
     <!-- - Total `keep`s count -->
+
   <!-- - Total public `vault`s count -->
   <!-- - The users name and avatar -->
   <!-- - Each `vault` has its own route where users can view all of the `keeps` in the vault -->

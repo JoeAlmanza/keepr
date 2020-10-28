@@ -2,8 +2,8 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex">
-        <h1 class="border border-primary">K</h1>
-        <h1>eepr</h1>
+        <h2 class="border border-primary">K</h2>
+        <h2>eepr</h2>
       </div>
     </router-link>
     <router-link
@@ -11,8 +11,8 @@
       :to="{ name: 'Profile', params: { id: profile.id } }"
     >
       <div class="d-flex">
-        <h1 class="border border-primary">P</h1>
-        <h1>rofile</h1>
+        <h2 class="border border-primary">P</h2>
+        <h2>rofile</h2>
       </div>
     </router-link>
     <button

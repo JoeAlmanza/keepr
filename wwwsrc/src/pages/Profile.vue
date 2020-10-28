@@ -1,8 +1,8 @@
 <template>
   <div class="profile container-fluid">
-    <h2 class="text-center">
+    <h4 class="text-center">
       <u>{{ activeProfile.name }}'s Profile</u>
-    </h2>
+    </h4>
     <div class="row my-2 infoRow align-items-center">
       <div class="col-10 col-md-3 text-center">
         <img class="avatarImg" :src="activeProfile.picture" alt="" />
@@ -24,12 +24,16 @@
         :data-target="'#' + 'modal' + 'createVault'"
       ></i>
     </h3>
-    <div class="row card-columns justify-content-start">
-      <vault-component
-        v-for="vault in vaults"
-        :key="vault.id"
-        :vaultProp="vault"
-      />
+    <div class="row justify-content-center">
+      <div class="col-11 p-0">
+        <div class="card-columns">
+          <vault-component
+            v-for="vault in vaults"
+            :key="vault.id"
+            :vaultProp="vault"
+          />
+        </div>
+      </div>
     </div>
 
     <h3>
@@ -42,8 +46,16 @@
         :data-target="'#' + 'modal' + 'createKeep'"
       ></i>
     </h3>
-    <div class="row card-columns justify-content-start">
-      <keep-component v-for="keep in keeps" :key="keep.id" :keepProp="keep" />
+    <div class="row justify-content-center">
+      <div class="col-11 p-0">
+        <div class="card-columns">
+          <keep-component
+            v-for="keep in keeps"
+            :key="keep.id"
+            :keepProp="keep"
+          />
+        </div>
+      </div>
     </div>
     <create-modal :id="'modal' + 'createKeep'">
       <template v-slot:body>
@@ -89,9 +101,6 @@ export default {
         (k) => k.creatorId == this.activeProfile.id
       );
     },
-    // modalId() {
-    //   return "modal" + "createKeep";
-    // },
   },
 
   mounted() {
