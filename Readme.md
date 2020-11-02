@@ -26,6 +26,6 @@ Lastly I can view other members profiles to see all the `vault`s and `keep`s the
 
 ### Business Rules and Functionality
 
-We want give users some credit for creating excellent `keep`s to do that you will want to set up a way to keep track of the number of times a keep has been viewed, and how many times it has been added to any vault. (as a stretch goal, when it is removed this count should be updated to go down as well).
+We want give users some credit for creating excellent `keep`s to do that I set up a way to keep track of the number of times a keep has been viewed, and how many times it has been added to any vault.
 
 Due to the privacy of our users, Vaults marked private may only be retrieved by the user who created the vault, there are a few places you will want to make a check on what vaults should be returned.
