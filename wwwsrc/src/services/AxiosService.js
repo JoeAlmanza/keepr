@@ -1,6 +1,10 @@
 import Axios from "axios";
+
+let baseURL = location.host.includes("localhost")
+  ? "http://localhost:5001/"
+  : "/";
 export const api = Axios.create({
-  baseURL: "https://localhost:5001/api/",
+  baseURL: baseURL + "api",
   timeout: 3000,
 });
 

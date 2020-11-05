@@ -93,6 +93,9 @@ namespace Keepr
 
       app.UseAuthorization();
 
+      app.UseDefaultFiles();
+      app.UseStaticFiles();
+
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();

@@ -1,6 +1,5 @@
 <template>
   <div class="home container-fluid">
-    <h1 class="text-center"><u>Welcome</u></h1>
     <div class="row justify-content-center">
       <div class="col-11 p-0">
         <div class="card-columns">
