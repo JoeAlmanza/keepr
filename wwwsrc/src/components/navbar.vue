@@ -2,6 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex">
+        <img class="vaultImg" src="../assets/vault.png" alt="" />
         <h2 class="border border-primary">K</h2>
         <h2>eepr</h2>
       </div>
@@ -77,4 +78,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.vaultImg {
+  max-height: 47px;
+}
+</style>
