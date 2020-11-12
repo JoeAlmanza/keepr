@@ -18,7 +18,7 @@
       <u>Vaults</u>:
       <i
         v-if="profile.id == activeProfile.id"
-        class="fa fa-plus-square text-success linkPointer"
+        class="fa fa-plus-square text-info linkPointer"
         aria-hidden="true"
         data-toggle="modal"
         :data-target="'#' + 'modal' + 'createVault'"
@@ -40,7 +40,7 @@
       <u>Keeps</u>:
       <i
         v-if="profile.id == activeProfile.id"
-        class="fa fa-plus-square text-success linkPointer"
+        class="fa fa-plus-square text-info linkPointer"
         aria-hidden="true"
         data-toggle="modal"
         :data-target="'#' + 'modal' + 'createKeep'"

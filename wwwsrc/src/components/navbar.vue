@@ -1,21 +1,13 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex">
+      <div class="d-flex text-info textShadow">
         <img class="vaultImg" src="../assets/vault.png" alt="" />
-        <h2 class="border border-primary">K</h2>
-        <h2>eepr</h2>
+
+        <h1>Keepr</h1>
       </div>
     </router-link>
-    <router-link
-      class="navbar-brand d-flex"
-      :to="{ name: 'Profile', params: { id: profile.id } }"
-    >
-      <div class="d-flex">
-        <h2 class="border border-primary">P</h2>
-        <h2>rofile</h2>
-      </div>
-    </router-link>
+
     <button
       class="navbar-toggler text-right"
       type="button"
@@ -31,7 +23,14 @@
       class="collapse navbar-collapse d-flex justify-content-end"
       id="navbarText"
     >
-      <span class="navbar-text">
+      <span class="navbar-text d-flex p-2">
+        <button
+          class="btn btn-info mr-2 text-dark"
+          @click="$router.push({ name: 'Profile', params: { id: profile.id } })"
+        >
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </button>
+
         <!-- Consider changing this to a profile picture -->
         <button
           class="btn btn-success"
@@ -40,12 +39,8 @@
         >
           Login
         </button>
-        <button
-          class="btn btn-danger d-flex justify-content-end"
-          @click="logout"
-          v-else
-        >
-          logout
+        <button class="btn btn-danger" @click="logout" v-else>
+          Logout
         </button>
       </span>
     </div>
@@ -81,5 +76,8 @@ export default {
 <style>
 .vaultImg {
   max-height: 47px;
+}
+.textShadow {
+  text-shadow: 1px 1px black;
 }
 </style>
