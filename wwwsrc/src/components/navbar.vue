@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex text-info textShadow">
         <img class="vaultImg" src="../assets/vault.png" alt="" />
@@ -78,6 +78,9 @@ export default {
   max-height: 47px;
 }
 .textShadow {
-  text-shadow: 1px 1px black;
+  text-shadow: 1px 1px rgb(255, 255, 255);
+}
+.navbar {
+  background-color: #001011;
 }
 </style>

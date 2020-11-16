@@ -7,7 +7,9 @@
       aria-hidden="true"
     ></i>
     <div class="card-body">
-      <h5 @click="viewVault" class="linkPointer">{{ vaultProp.name }}</h5>
+      <h5 @click="viewVault" class="linkPointer text-info">
+        {{ vaultProp.name }}
+      </h5>
       <p @click="viewVault" class="linkPointer">{{ vaultProp.description }}</p>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="home container-fluid">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center text-light">
       <div class="col-11 p-0 mt-4">
         <div class="card-columns">
           <keepComponent

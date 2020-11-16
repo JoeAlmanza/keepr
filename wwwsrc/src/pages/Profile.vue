@@ -1,5 +1,5 @@
 <template>
-  <div class="profile container-fluid">
+  <div class="profile container-fluid text-light">
     <h4 class="text-center">
       <u>{{ activeProfile.name }}'s Profile</u>
     </h4>
