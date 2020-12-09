@@ -52,4 +52,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+button {
+  border-radius: 10px;
+  box-shadow: 1px 1px 4px #000000, -1px -1px 4px #000000;
+}
+</style>

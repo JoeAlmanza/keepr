@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 let baseURL = location.host.includes("localhost")
-  ? "http://localhost:5001/"
+  ? "https://localhost:5001/"
   : "/";
 export const api = Axios.create({
   baseURL: baseURL + "api",

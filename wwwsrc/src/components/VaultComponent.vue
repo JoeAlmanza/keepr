@@ -7,10 +7,12 @@
       aria-hidden="true"
     ></i>
     <div class="card-body">
-      <h5 @click="viewVault" class="linkPointer text-info">
+      <h5 @click="viewVault" class="linkPointer text-light">
         {{ vaultProp.name }}
       </h5>
-      <p @click="viewVault" class="linkPointer">{{ vaultProp.description }}</p>
+      <p @click="viewVault" class="linkPointer text-info">
+        {{ vaultProp.description }}
+      </p>
     </div>
   </div>
 </template>
@@ -56,5 +58,8 @@ export default {
 .card {
   display: inline-block;
   min-width: 163px;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 2px 2px 5px #000000, -2px -2px 5px #000000;
 }
 </style>

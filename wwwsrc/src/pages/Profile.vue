@@ -1,5 +1,5 @@
 <template>
-  <div class="profile container-fluid text-light">
+  <div class="profile container-fluid text-dark">
     <h4 class="text-center">
       <u>{{ activeProfile.name }}'s Profile</u>
     </h4>
@@ -14,11 +14,11 @@
       </div>
     </div>
     <br />
-    <h3 class="mt-3">
+    <h3 class="mt-3 text-dark">
       <u>Vaults</u>:
       <i
         v-if="profile.id == activeProfile.id"
-        class="fa fa-plus-square text-info linkPointer"
+        class="fa fa-plus-square text-secondary linkPointer"
         aria-hidden="true"
         data-toggle="modal"
         :data-target="'#' + 'modal' + 'createVault'"
@@ -36,11 +36,11 @@
       </div>
     </div>
 
-    <h3>
+    <h3 class="text-dark">
       <u>Keeps</u>:
       <i
         v-if="profile.id == activeProfile.id"
-        class="fa fa-plus-square text-info linkPointer"
+        class="fa fa-plus-square text-secondary linkPointer"
         aria-hidden="true"
         data-toggle="modal"
         :data-target="'#' + 'modal' + 'createKeep'"

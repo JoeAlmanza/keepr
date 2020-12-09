@@ -11,7 +11,7 @@
   >
     <div class="card-body p-2 linkPointer d-flex flex-row-reverse">
       <h5
-        class="my-0 textShadow"
+        class="my-0 textShadow text-light"
         @click="setActive"
         data-toggle="modal"
         :data-target="'#' + modalId"
@@ -21,14 +21,14 @@
     </div>
     <div class="card-body p-2 text-right d-flex justify-content-end">
       <i
-        class="fa fa-user-circle-o linkPointer textShadow"
+        class="fa fa-user-circle-o linkPointer textShadow text-secondary"
         @click="viewProfile"
         aria-hidden="true"
       ></i>
     </div>
     <div class="card-body p-2 text-right d-flex justify-content-end">
       <i
-        class="fa fa-trash text-danger p-1 linkPointer d-flex justify-content-end"
+        class="fa fa-trash text-danger textShadow p-1 linkPointer d-flex justify-content-end"
         v-if="profile.id == keepProp.creatorId"
         @click="deleteKeep"
         aria-hidden="true"
@@ -88,11 +88,11 @@ export default {
 .card {
   display: inline-block;
   min-width: 163px;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 2px 2px 5px #000000, -2px -2px 5px #000000;
 }
 .textShadow {
-  text-shadow: 1px 1px black;
-}
-.card {
-  box-shadow: 2px 2px black;
+  text-shadow: 1px 1px rgb(0, 0, 0);
 }
 </style>
