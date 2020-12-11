@@ -11,7 +11,7 @@
   >
     <div class="card-body p-2 linkPointer d-flex flex-row-reverse">
       <h5
-        class="my-0 textShadow text-light"
+        class="my-0 textShadow text-info"
         @click="setActive"
         data-toggle="modal"
         :data-target="'#' + modalId"
@@ -90,7 +90,7 @@ export default {
   min-width: 163px;
   border: 0;
   border-radius: 12px;
-  box-shadow: 2px 2px 5px #000000, -2px -2px 5px #000000;
+  box-shadow: 2px 2px 4px #000000;
 }
 .textShadow {
   text-shadow: 1px 1px rgb(0, 0, 0);

@@ -1,7 +1,7 @@
 <template>
   <nav class="row navbar navbar-expand-lg navbar-light">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex text-secondary textShadow">
+      <div class="d-flex text-info textShadow">
         <img class="vaultImg" src="../assets/safe.png" alt="" />
         <h1>Keepr</h1>
       </div>
@@ -24,10 +24,11 @@
     >
       <span class="navbar-text d-flex p-2">
         <button
-          class="btn btn-info mr-2 text-dark"
+          class="btn btn-warning mr-2 text-dark"
           @click="$router.push({ name: 'Profile', params: { id: profile.id } })"
         >
           <i class="fa fa-user" aria-hidden="true"></i>
+          Profile
         </button>
 
         <!-- Consider changing this to a profile picture -->
@@ -74,12 +75,18 @@ export default {
 
 <style>
 .vaultImg {
-  max-height: 47px;
+  max-height: 48px;
 }
 .textShadow {
   text-shadow: 1px 1px rgb(0, 0, 0);
 }
 .navbar {
-  background-color: #ffffff;
+  background-color: #d6f5ff;
+}
+.btn {
+  box-shadow: 2px 2px 4px #000000;
+}
+button::active {
+  transform: translateY(2px);
 }
 </style>

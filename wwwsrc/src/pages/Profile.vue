@@ -7,10 +7,10 @@
       <div class="col-10 col-md-3 text-center">
         <img class="avatarImg" :src="activeProfile.picture" alt="" />
       </div>
-      <div class="col-10 col-md-7">
-        <h5>Name: {{ activeProfile.name }}</h5>
-        <h5>Vaults: {{ vaults.length }}</h5>
-        <h5>Keeps: {{ keeps.length }}</h5>
+      <div class="col-10 col-md-7 textShadow text-info">
+        <h4>Name: {{ activeProfile.name }}</h4>
+        <h4>Vaults: {{ vaults.length }}</h4>
+        <h4>Keeps: {{ keeps.length }}</h4>
       </div>
     </div>
     <br />
@@ -18,7 +18,7 @@
       <u>Vaults</u>:
       <i
         v-if="profile.id == activeProfile.id"
-        class="fa fa-plus-square text-secondary linkPointer"
+        class="fa fa-plus-square text-info linkPointer textShadow"
         aria-hidden="true"
         data-toggle="modal"
         :data-target="'#' + 'modal' + 'createVault'"
@@ -40,7 +40,7 @@
       <u>Keeps</u>:
       <i
         v-if="profile.id == activeProfile.id"
-        class="fa fa-plus-square text-secondary linkPointer"
+        class="fa fa-plus-square text-info linkPointer textShadow"
         aria-hidden="true"
         data-toggle="modal"
         :data-target="'#' + 'modal' + 'createKeep'"
@@ -123,11 +123,15 @@ export default {
 .avatarImg {
   max-width: 150px;
   border-radius: 50px;
+  box-shadow: 2px 2px 4px #000000;
 }
 .infoRow {
   height: 23vh;
 }
 .linkPointer {
   cursor: pointer;
+}
+.textShadow {
+  text-shadow: 1px 1px rgb(0, 0, 0);
 }
 </style>

@@ -1,16 +1,16 @@
 <template>
   <div class="vault-component card mt-1 bg-dark text-light">
     <i
-      class="fa fa-times text-danger linkPointer"
+      class="fa fa-times text-danger linkPointer ml-2 textShadow"
       v-if="profile.id == vaultProp.creatorId"
       @click="deleteVault"
       aria-hidden="true"
     ></i>
     <div class="card-body">
-      <h5 @click="viewVault" class="linkPointer text-light">
+      <h5 @click="viewVault" class="linkPointer text-success textShadow">
         {{ vaultProp.name }}
       </h5>
-      <p @click="viewVault" class="linkPointer text-info">
+      <p @click="viewVault" class="linkPointer text-info textShadow">
         {{ vaultProp.description }}
       </p>
     </div>
@@ -55,11 +55,19 @@ export default {
   cursor: pointer;
 }
 
+.textShadow {
+  text-shadow: 1px 1px rgb(0, 0, 0);
+}
+
 .card {
+  background-image: url("../assets/vault01.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   display: inline-block;
   min-width: 163px;
   border: 0;
   border-radius: 12px;
-  box-shadow: 2px 2px 5px #000000, -2px -2px 5px #000000;
+  box-shadow: 2px 2px 4px #000000;
 }
 </style>
