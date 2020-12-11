@@ -6,7 +6,6 @@
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
       backgroundRepeat: 'no-repeat',
-      height: '20vh',
     }"
   >
     <div class="card-body p-2 linkPointer d-flex flex-row-reverse">

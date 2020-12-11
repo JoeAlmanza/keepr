@@ -2,7 +2,7 @@
   <nav class="row navbar navbar-expand-lg navbar-light">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex text-info textShadow">
-        <img class="vaultImg" src="../assets/safe.png" alt="" />
+        <img class="vaultImg ml-3" src="../assets/safe.png" alt="" />
         <h1>Keepr</h1>
       </div>
     </router-link>
@@ -22,7 +22,7 @@
       class="collapse navbar-collapse d-flex justify-content-end"
       id="navbarText"
     >
-      <span class="navbar-text d-flex p-2">
+      <span class="navbar-text d-flex p-2 mr-2">
         <button
           class="btn btn-warning mr-2 text-dark"
           @click="$router.push({ name: 'Profile', params: { id: profile.id } })"
