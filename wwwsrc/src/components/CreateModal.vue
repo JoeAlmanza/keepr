@@ -2,7 +2,7 @@
   <div class="modal fade" :id="id" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content" :class="color">
-        <div class="modal-header">
+        <div class="modal-header bgBlack">
           <slot name="header"></slot>
           <button
             type="button"
@@ -10,7 +10,7 @@
             data-dismiss="modal"
             aria-label="Close"
           >
-            <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true" class="text-danger">&times;</span>
           </button>
         </div>
         <slot name="body"></slot>
@@ -35,4 +35,11 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.bgBlack {
+  background-color: black;
+}
+.modal-header {
+  border: 0;
+}
+</style>

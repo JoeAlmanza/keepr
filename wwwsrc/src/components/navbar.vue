@@ -84,7 +84,7 @@ export default {
   max-height: 48px;
 }
 .textShadow {
-  text-shadow: 2px 2px rgb(0, 0, 0);
+  text-shadow: 2px 2px 3px rgb(0, 0, 0);
 }
 .navbar {
   background-color: #d6f5ff;

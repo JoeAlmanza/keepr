@@ -1,6 +1,13 @@
 <template>
   <div class="keep-component card mt-1 text-light bgBlack">
-    <img class="card-img-top" v-bind:src="keepProp.img" alt="Card image cap" />
+    <img
+      class="card-img-top linkPointer"
+      v-bind:src="keepProp.img"
+      alt="Card image cap"
+      @click="setActive"
+      data-toggle="modal"
+      :data-target="'#' + modalId"
+    />
     <div class="card-body p-1 linkPointer">
       <h5
         class="my-0 textShadow text-info"

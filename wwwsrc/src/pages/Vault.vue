@@ -1,6 +1,6 @@
 <template>
   <div class="vault container-fluid">
-    <h2 class="text-light"><u>Vault Keeps</u>:</h2>
+    <h2 class="text-dark"><u>Vault Keeps</u>:</h2>
     <div class="row justify-content-center">
       <div class="col-11 p-0">
         <div class="card-columns">
