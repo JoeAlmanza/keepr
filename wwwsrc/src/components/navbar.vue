@@ -1,5 +1,5 @@
 <template>
-  <nav class="row navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <router-link class="navbar-brand" :to="{ name: 'Home' }">
       <div class="d-flex text-primary textShadow">
         <img class="vaultImg ml-3 mr-1" src="../assets/vault.png" alt="" />
