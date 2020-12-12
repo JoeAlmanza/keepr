@@ -1,6 +1,6 @@
 <template>
   <div class="home container-fluid">
-    <div class="row justify-content-center text-light">
+    <div class="row justify-content-center text-light h-100">
       <div class="col-11 p-0 mt-4">
         <div class="card-columns h-100">
           <keepComponent
@@ -44,7 +44,7 @@ export default {
 };
 </script>
 <style scoped>
-#home {
+.container-fluid {
   height: 100vh;
 }
 </style>

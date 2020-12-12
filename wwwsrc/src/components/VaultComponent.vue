@@ -66,7 +66,7 @@ export default {
   background-repeat: no-repeat;
   display: inline-block;
   min-width: 163px;
-  border: 0;
+  border: 1px solid black;
   border-radius: 12px;
   box-shadow: 2px 2px 4px #000000;
 }

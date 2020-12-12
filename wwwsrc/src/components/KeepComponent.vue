@@ -1,14 +1,7 @@
 <template>
-  <div
-    class="keep-component card mt-1 text-light"
-    v-bind:style="{
-      backgroundImage: 'url(' + keepProp.img + ')',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center center',
-      backgroundRepeat: 'no-repeat',
-    }"
-  >
-    <div class="card-body p-2 linkPointer d-flex flex-row-reverse">
+  <div class="keep-component card mt-1 text-light bgBlack">
+    <img class="card-img-top" v-bind:src="keepProp.img" alt="Card image cap" />
+    <div class="card-body p-1 linkPointer">
       <h5
         class="my-0 textShadow text-info"
         @click="setActive"
@@ -18,21 +11,21 @@
         {{ keepProp.name }}
       </h5>
     </div>
-    <div class="card-body p-2 text-right d-flex justify-content-end">
+    <div class="card-body p-1 d-flex justify-content-between">
       <i
-        class="fa fa-user-circle-o linkPointer textShadow text-secondary"
+        class="fa fa-user-circle-o linkPointer textShadow text-warning"
         @click="viewProfile"
         aria-hidden="true"
-      ></i>
-    </div>
-    <div class="card-body p-2 text-right d-flex justify-content-end">
+      >
+      </i>
       <i
-        class="fa fa-trash text-danger textShadow p-1 linkPointer d-flex justify-content-end"
+        class="fa fa-trash text-danger textShadow p-1 linkPointer"
         v-if="profile.id == keepProp.creatorId"
         @click="deleteKeep"
         aria-hidden="true"
       ></i>
     </div>
+
     <keep-modal :id="modalId">
       <template v-slot:body>
         <keep-details />
@@ -84,14 +77,21 @@ export default {
   cursor: pointer;
 }
 
+.card-img-top {
+  border-radius: 12px 12px 0px 0px;
+}
+
 .card {
   display: inline-block;
   min-width: 163px;
-  border: 0;
+  border: 2px solid black;
   border-radius: 12px;
-  box-shadow: 2px 2px 4px #000000;
+  box-shadow: 2px 2px 4px #000000, -2px -2px 4px #000000;
 }
 .textShadow {
   text-shadow: 1px 1px rgb(0, 0, 0);
+}
+.bgBlack {
+  background-color: black;
 }
 </style>

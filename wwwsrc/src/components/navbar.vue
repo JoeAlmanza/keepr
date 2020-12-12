@@ -1,9 +1,12 @@
 <template>
   <nav class="row navbar navbar-expand-lg navbar-light">
-    <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex text-info textShadow">
-        <img class="vaultImg ml-3" src="../assets/safe.png" alt="" />
-        <h1>Keepr</h1>
+    <router-link class="navbar-brand" :to="{ name: 'Home' }">
+      <div class="d-flex text-primary textShadow">
+        <img class="vaultImg ml-3 mr-1" src="../assets/vault.png" alt="" />
+        <h1><strong>Keepr</strong></h1>
+      </div>
+      <div class="ml-3">
+        <h5>Save and share!</h5>
       </div>
     </router-link>
 
@@ -28,7 +31,7 @@
           @click="$router.push({ name: 'Profile', params: { id: profile.id } })"
         >
           <i class="fa fa-user" aria-hidden="true"></i>
-          Profile
+          <strong>Profile</strong>
         </button>
 
         <!-- Consider changing this to a profile picture -->
@@ -37,10 +40,10 @@
           @click="login"
           v-if="!$auth.isAuthenticated"
         >
-          Login
+          <strong>Login </strong>
         </button>
         <button class="btn btn-danger" @click="logout" v-else>
-          Logout
+          <strong>Logout </strong>
         </button>
       </span>
     </div>
@@ -75,10 +78,13 @@ export default {
 
 <style>
 .vaultImg {
+  box-shadow: 2px 2px 4px black;
+  border-radius: 50%;
+  border: 1px solid black;
   max-height: 48px;
 }
 .textShadow {
-  text-shadow: 1px 1px rgb(0, 0, 0);
+  text-shadow: 2px 2px rgb(0, 0, 0);
 }
 .navbar {
   background-color: #d6f5ff;
