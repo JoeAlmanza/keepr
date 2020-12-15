@@ -46,6 +46,7 @@ export default {
       return "This vault is private!";
     },
   },
+
   components: {},
 };
 </script>

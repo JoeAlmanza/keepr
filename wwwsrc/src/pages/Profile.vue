@@ -105,10 +105,12 @@ export default {
     },
   },
 
-  // beforeRouteUpdate(to, from, next) {
-  //   this.name = to.params.name;
-  //   next();
-  // },
+  beforeRouteUpdate(to, from, next) {
+    this.activeProfile = this.$store.dispatch("getActiveProfile", to.params.id);
+    this.vaults = this.$store.dispatch("getProfileVaults", to.params.id);
+    this.keeps = this.$store.dispatch("getKeeps");
+    next();
+  },
 
   mounted() {
     this.$store.dispatch("getActiveProfile", this.$route.params.id);
