@@ -60,7 +60,7 @@ export default {
   watch: {
     profile: function(userProfile) {
       if (userProfile.id) {
-        this.$store.dispatch("getProfileVaults", this.profile.id);
+        this.$store.dispatch("getUserVaults", this.profile.id);
       } else {
         router.push({ name: "Home" });
       }
@@ -77,10 +77,7 @@ export default {
       return this.$store.state.profileVaults;
     },
     userVaults() {
-      return this.$store.state.profileVaults.filter(
-        (v) => v.creatorId == this.profile.id
-        // && !v.isPrivate
-      );
+      return this.$store.state.userVaults;
     },
   },
   methods: {

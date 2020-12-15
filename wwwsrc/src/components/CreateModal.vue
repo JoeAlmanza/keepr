@@ -22,6 +22,7 @@
 <script>
 export default {
   name: "CreateModal",
+
   props: {
     id: {
       type: String,

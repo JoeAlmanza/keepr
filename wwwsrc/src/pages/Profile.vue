@@ -81,11 +81,13 @@ import vaultComponent from "../components/VaultComponent.vue";
 import keepComponent from "../components/KeepComponent.vue";
 export default {
   name: "profile",
+
   data() {
     return {
       newKeep: {},
     };
   },
+
   computed: {
     profile() {
       return this.$store.state.profile;
@@ -94,10 +96,7 @@ export default {
       return this.$store.state.activeProfile;
     },
     vaults() {
-      return this.$store.state.profileVaults.filter(
-        (v) => v.creatorId == this.activeProfile.id
-        // && !v.isPrivate
-      );
+      return this.$store.state.profileVaults;
     },
     keeps() {
       return this.$store.state.keeps.filter(
@@ -106,12 +105,17 @@ export default {
     },
   },
 
+  // beforeRouteUpdate(to, from, next) {
+  //   this.name = to.params.name;
+  //   next();
+  // },
+
   mounted() {
     this.$store.dispatch("getActiveProfile", this.$route.params.id);
     this.$store.dispatch("getProfileVaults", this.$route.params.id);
     this.$store.dispatch("getKeeps");
   },
-  methods: {},
+
   components: {
     keepComponent,
     vaultComponent,

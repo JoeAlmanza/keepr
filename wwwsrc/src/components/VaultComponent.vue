@@ -68,6 +68,6 @@ export default {
   min-width: 163px;
   border: 1px solid black;
   border-radius: 12px;
-  box-shadow: 2px 2px 4px #000000;
+  box-shadow: 1px 1px 2px #000000, -1px -1px 2px #000000;
 }
 </style>

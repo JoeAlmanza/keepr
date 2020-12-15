@@ -15,6 +15,7 @@ export default new Vuex.Store({
     profileKeeps: [],
     vaultKeeps: [],
     profileVaults: [],
+    userVaults: [],
   },
   mutations: {
     setProfile(state, profile) {
@@ -37,6 +38,9 @@ export default new Vuex.Store({
     },
     setProfileVaults(state, vaults) {
       state.profileVaults = vaults;
+    },
+    setUserVaults(state, vaults) {
+      state.userVaults = vaults;
     },
     deleteKeep(state, keep) {
       state.keeps = keep;
@@ -158,6 +162,15 @@ export default new Vuex.Store({
       try {
         let res = await api.get("profiles/" + profileId + "/vaults");
         commit("setProfileVaults", res.data);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+
+    async getUserVaults({ commit }, profileId) {
+      try {
+        let res = await api.get("profiles/" + profileId + "/vaults");
+        commit("setUserVaults", res.data);
       } catch (error) {
         console.error(error);
       }
