@@ -91,6 +91,7 @@ export default {
 }
 .btn {
   box-shadow: 2px 2px 4px #000000;
+  border: 1px solid black !important;
 }
 button::active {
   transform: translateY(2px);
