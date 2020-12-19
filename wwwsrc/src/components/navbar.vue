@@ -2,11 +2,8 @@
   <nav class="navbar navbar-expand-lg navbar-light">
     <router-link class="navbar-brand" :to="{ name: 'Home' }">
       <div class="d-flex text-primary textShadow">
-        <img class="vaultImg ml-3 mr-1" src="../assets/vault.png" alt="" />
-        <h1><strong>Keepr</strong></h1>
-      </div>
-      <div class="ml-3">
-        <h5>Save and share!</h5>
+        <img class="vaultImg ml-3 mr-1 mt-2" src="../assets/vault.png" alt="" />
+        <img class="logoImg mt-2" src="../assets/keepr.png" alt="" />
       </div>
     </router-link>
 
@@ -78,10 +75,13 @@ export default {
 
 <style>
 .vaultImg {
-  box-shadow: 2px 2px 4px black;
-  border-radius: 50%;
+  max-height: 60px;
   border: 1px solid black;
-  max-height: 48px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 3px black;
+}
+.logoImg {
+  max-height: 65px;
 }
 .textShadow {
   text-shadow: 2px 2px 3px rgb(0, 0, 0);
@@ -90,7 +90,7 @@ export default {
   background-color: #d6f5ff;
 }
 .btn {
-  box-shadow: 2px 2px 4px #000000;
+  box-shadow: 2px 2px 3px #000000, -1px -1px 3px #000000;
   border: 1px solid black !important;
 }
 button::active {
