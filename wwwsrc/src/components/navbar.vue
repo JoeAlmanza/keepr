@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light">
     <router-link class="navbar-brand" :to="{ name: 'Home' }">
       <div class="d-flex text-primary textShadow">
-        <img class="vaultImg ml-3 mr-1 mt-2" src="../assets/vault.png" alt="" />
+        <img class="vaultImg ml-3 mr-1 mt-1" src="../assets/vault.png" alt="" />
         <img class="logoImg mt-2" src="../assets/keepr.png" alt="" />
       </div>
     </router-link>
@@ -75,7 +75,7 @@ export default {
 
 <style>
 .vaultImg {
-  max-height: 60px;
+  max-height: 65px;
   border: 1px solid black;
   border-radius: 50%;
   box-shadow: 1px 1px 3px black;
