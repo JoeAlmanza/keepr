@@ -79,7 +79,6 @@ namespace keepr.Repositories
       return newKeep;
     }
 
-
     internal object Edit(Keep updated)
     {
       string sql = @"
