@@ -76,7 +76,7 @@ export default {
 <style>
 .vaultImg {
   max-height: 65px;
-  border: 1px solid black;
+  border: 3px solid black;
   border-radius: 50%;
   box-shadow: 1px 1px 3px black;
 }
