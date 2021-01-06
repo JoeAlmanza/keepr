@@ -33,19 +33,7 @@ namespace keepr.Repositories
       }, new{id}, splitOn: "id").FirstOrDefault();
     }
 
-    internal Vault Create(Vault newVault)
-    {
-      string sql = @"
-      INSERT INTO vaults
-      (creatorId, name, description, isPrivate)
-      VALUES
-      (@CreatorId, @Name, @Description, @isPrivate);
-      SELECT LAST_INSERT_ID();";
-      newVault.Id = _db.ExecuteScalar<int>(sql, newVault);
-      return newVault;
-    }
-
-    internal IEnumerable<Vault> GetByCreatorId(string id)
+        internal IEnumerable<Vault> GetByCreatorId(string id)
     {
       string sql = @"
       SELECT 
@@ -60,6 +48,20 @@ namespace keepr.Repositories
         return vault;
       }, new {id}, splitOn: "id");
     }
+
+    internal Vault Create(Vault newVault)
+    {
+      string sql = @"
+      INSERT INTO vaults
+      (creatorId, name, description, isPrivate)
+      VALUES
+      (@CreatorId, @Name, @Description, @isPrivate);
+      SELECT LAST_INSERT_ID();";
+      newVault.Id = _db.ExecuteScalar<int>(sql, newVault);
+      return newVault;
+    }
+
+
 
     internal void Delete(int id)
     {

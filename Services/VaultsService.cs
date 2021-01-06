@@ -31,6 +31,11 @@ namespace keepr.Services
       return data;
     }
 
+    internal IEnumerable<Vault> GetVaultsByProfileId(string queryId, string userId)
+    {
+      return _repo.GetByCreatorId(queryId).ToList().FindAll(v => v.CreatorId == userId || v.IsPrivate == false);
+    }
+
 
     internal object Create(Vault newVault)
     {
@@ -53,9 +58,6 @@ namespace keepr.Services
       return "Successfully Deleted";
     }
 
-    internal IEnumerable<Vault> GetVaultsByProfileId(string queryId, string userId)
-    {
-      return _repo.GetByCreatorId(queryId).ToList().FindAll(v => v.CreatorId == userId || v.IsPrivate == false);
-    }
+    
   }
 }

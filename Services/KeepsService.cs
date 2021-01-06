@@ -40,6 +40,10 @@ namespace keepr.Services
       return _repo.GetKeepsByVaultId(id);
     }
 
+    internal IEnumerable<Keep> GetKeepsByProfileId(string queryId, string userId)
+    {
+      return _repo.GetByCreatorId(queryId).ToList().FindAll(k=> k.CreatorId == userId); 
+    }
 
     internal Keep Create(Keep newKeep)
     {
@@ -82,10 +86,7 @@ namespace keepr.Services
     }
 
 
-    internal IEnumerable<Keep> GetKeepsByProfileId(string queryId, string userId)
-    {
-      return _repo.GetByCreatorId(queryId).ToList().FindAll(k=> k.CreatorId == userId); 
-    }
+    
 
   }
 }

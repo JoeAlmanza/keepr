@@ -48,7 +48,24 @@ namespace keepr.Repositories
           return keep;
       }, new {id}, splitOn: "id").FirstOrDefault();
     }
+    
+      internal IEnumerable<Keep> GetByCreatorId(string id)
+    {
+      string sql = @"
+      SELECT 
+      keep.*,
+      prof.*
+      FROM keeps keep
+      JOIN profiles prof ON keep.creatorId = prof.Id
+      WHERE keep.creatorId = @Id";
+      return _db.Query<Keep, Profile, Keep>(sql, (keep, profile) =>
+      {
+          keep.Creator = profile;
+          return keep;
+      }, new {id}, splitOn: "id");
+    }
 
+// Many to Many -------------------
     internal IEnumerable<VaultKeepViewModel> GetKeepsByVaultId(int id)
     {
       string sql = @"
@@ -95,21 +112,7 @@ namespace keepr.Repositories
       return updated;
     }
 
-    internal IEnumerable<Keep> GetByCreatorId(string id)
-    {
-      string sql = @"
-      SELECT 
-      keep.*,
-      prof.*
-      FROM keeps keep
-      JOIN profiles prof ON keep.creatorId = prof.Id
-      WHERE keep.creatorId = @Id";
-      return _db.Query<Keep, Profile, Keep>(sql, (keep, profile) =>
-      {
-          keep.Creator = profile;
-          return keep;
-      }, new {id}, splitOn: "id");
-    }
+
 
     internal void Delete(int id)
     {
